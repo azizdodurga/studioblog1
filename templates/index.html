@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for post in object_list %}
+            <div class="col-md-6"></div>
+
+            <div>
+                <a href="#">
+                    <h2>
+                        {{post.title}}
+                    </h2>
+                    <h3>
+                        {{post.subtitle}}
+                    </h3>
+                </a>
+                <p>posted by
+                    <a href="#">{{post.author}}</a>
+                    on {{post.date}}
+                </p>
+                </div>
+            
+            </div> 
+            <div class="col-md-6">
+                
+                {% if post.image %}
+                    <img src="{{post.image.url}}">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
