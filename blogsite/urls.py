@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("blog.url"), name="index" )
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
- # static(settings.STATIC_URL, documents_root=settings.STATIC_ROOT)
+    path('', include("blog.url")),
+    path('post/<int:pk>', include("blog.url")),
+    
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

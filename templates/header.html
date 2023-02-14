@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>blog</title>
-    <link href="{% static 'static/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'static/css/style.css' %}" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
   </head>
   <body>
 
   <!--Navbar-->
   <div>
-   <nav class="navbar bg-dark fixed-top navbar-expand-sm">
+   <nav class="navbar bg-dark navbar-expand-sm mb-3">
     <div class="container-fluid">
-      <a class="navbar-brand text-light" href="#">
+      <a class="navbar-brand text-light" href="{% url 'index' %}">
         <!--<img src="/static/images/studioblog.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->
         studio blog
       </a>
@@ -23,9 +23,9 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-          <a class="nav-link text-light" href="#">About</a>
-          <a class="nav-link text-light" href="#">Contact</a>
+          <a class="nav-link active text-light" aria-current="page" href="{% url 'index' %}">Home</a>
+          <a class="nav-link text-light" href="#about">About</a>
+          <a class="nav-link text-light" href="#contact">Contact</a>
         </div>
       </div>
     </div>

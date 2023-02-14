@@ -1,6 +1,8 @@
 
 {% extends "base.html" %}
 
+
+
 {% load static %}
 
 {% block content %}
@@ -20,31 +22,73 @@
     </div>
   </section>
 
-<div class="container text-center">
-    <div class="row justify-content-center">
+<!-- Post -->
+
+<div class="container text-center ">
+    <div class="row justify-content-center p-2">
         {% for post in object_list %}
-            <div class="col-md-6 p-3">
-                    <a href="{% url 'post' post.pk %}">
+          <div class="col-md-6 shadow-lg border border-3 border-dark p-5 border-opacity-10 rounded-2">
+                    <a href="{% url 'post' post.pk %}" class="btn btn-dark p-2">  
                         <h2>
                             {{post.title}}
                         </h2>
-                        <h3>
-                            {{post.subtitle}}
-                        </h3>
                     </a>
-                    <p>posted by
+                        <h4 class="p-2">
+                            {{post.subtitle}}
+                        </h4>
+                    
+                    <p class="p-2">posted by
                         <a href="#">{{post.author}}</a>
                         on {{post.date}}
                     </p>
             </div> 
-            <div class="col-md-6 col-md-6 p-3">
-                {% if post.image %}
-                    <img src="{{post.image.url}}" class="width="200" height="200"" >
+            <div class="col-md-6 col-md-6 p-2">
+                {% if post.image_1 %}
+                    <img src="{{post.image_1.url}}" class="img-thumbnail w-100 h-100" >
                 {% endif %}
             </div>
         {% endfor %}
     </div>
 </div>
+
+<!-- About -->
+
+<div class="container text-center mt-5">
+  <div class="row justify-content-center p-2">
+    <div class="column-md-10 shadow-lg border border-3 border-dark p-3 border-opacity-10 rounded-2 ">
+
+      <h3 id="about" class="text-muted">
+        who we are
+      </h3>
+      <p class="lead">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas congue quisque egestas diam in arcu. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Id volutpat lacus laoreet non curabitur. Facilisis leo vel fringilla est ullamcorper eget nulla facilisi. Massa tincidunt nunc pulvinar sapien et ligula. Integer quis auctor elit sed vulputate mi sit. Pellentesque habitant morbi tristique senectus et. Magna eget est lorem ipsum dolor sit amet consectetur. Diam ut venenatis tellus in. Odio ut sem nulla pharetra diam sit amet. Sapien eget mi proin sed libero enim sed.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="container mt-5">
+  <div class="row justify-content-center p-2">
+    <form class="row g-3">
+    <div class="column-md-10 shadow-lg border border-3 border-dark p-3 border-opacity-10 rounded-2">
+      <div id="contact" class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-dark" type="submit">Submit form</button>
+    </div>
+    </form>
+  </div>
+</div>
+
 
 {% endblock %}
 
