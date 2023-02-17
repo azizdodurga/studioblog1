@@ -17,6 +17,9 @@ class Post(models.Model):
     image_3 = models.ImageField(upload_to="media/", height_field=None, null=True, width_field=None, max_length=100)
     image_4 = models.ImageField(upload_to="media/", height_field=None, null=True, width_field=None, max_length=100)
 
+    class Meta():
+        ordering = ['-date']
+
     def __str__(self):
         return self.title
 
