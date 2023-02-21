@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>blog</title>
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
 
@@ -18,19 +18,33 @@
         <!--<img src="/static/images/studioblog.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->
         studio blog
       </a>
+      <a href="#">
+        <i class="bi bi-instagram btn btn-light btn-sm mx-1"><img src="{% static 'images/instagram.svg' %}" alt="instagram"></i>
+      </a>
+
+      <a href="#">
+        <i class="bi bi-facebook btn btn-light btn-sm mx-1"><img src="{% static 'images/facebook.svg' %}" alt="facebook"></i>
+      </a>
+
+      <a href="#">
+        <i class="bi bi-youtube btn btn-light btn-sm mx-1"><img src="{% static 'images/youtube.svg' %}" alt="youtube"></i>
+      </a>
+      
       <button class="navbar-toggler btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon btn btn-light"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active text-light" aria-current="page" href="{% url 'index' %}">Home</a>
-          <a class="nav-link text-light" href="#about">About</a>
-          <a class="nav-link text-light" href="#contact">Contact</a>
+          <a class="nav-link text-light" href="{% url 'about' %}">About</a>
+          <a class="nav-link text-light" href="{% url 'contact' %}">Contact</a>
         </div>
       </div>
     </div>
    </nav>
   </div>
+
+  
 
 
   

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<section id="hero">
+  <div class="container mb-2 mt-2">
+    <div class="d-flex flex-column justify-content-center h-100">     
+      <span class="text-light display-5 text-center ">Fast and trustful information about our experience</span>
+    </div>      
+  </div>
+</section>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="class">
+      <form action="{% url 'contact' %}" method="POST">
+        {% csrf_token %}
+        
+        {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+            <label for="{{ field.id_for_label }}" class="h6">{{ field.label }}</label>
+            {{ field|add_class:'form-control' }}
+            {% for error in field.errors %}
+              <span class="help-block">{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="form-group mt-3 mb-3">
+          <button type="submit" class="btn btn-dark">
+            <span class="glyphicon glyphicon-ok"></span> Save
+          </button>
+          <a href="{% url 'index' %}" class="btn btn-default">Cancel</a>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+  {% endblock %}
